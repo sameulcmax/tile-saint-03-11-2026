@@ -546,7 +546,8 @@ export function ServiceAreasPage() {
         }
         text="Personal attention and carefully executed tile work, close to home."
         image="area-hero"
-        alt="Residential design inspiration for a Northern New Jersey home"
+        alt="The reflecting pool and historic Vail Mansion in Morristown, New Jersey"
+        preserveOriginal
       />
       <Breadcrumbs current="Service Areas" />
       <AreasSection overview />
@@ -619,6 +620,7 @@ export function LocationPage() {
         text={area.label}
         image={area.image}
         alt={area.alt}
+        preserveOriginal
       >
         <Action to={`/contact?area=${area.name}`}>
           Start Your {area.name} Project
@@ -791,6 +793,44 @@ export function CreditsPage() {
             <li>
               <a href="https://www.pexels.com/photo/4977451/" target="_blank" rel="noreferrer">
                 Karolina Grabowska / Kaboompics, photo 4977451
+              </a>
+            </li>
+          </ul>
+          <h2>Northern New Jersey photography</h2>
+          <p>
+            The service-area photographs are restored from Wikimedia Commons.
+            Each link includes its original photographer and license:
+          </p>
+          <ul>
+            <li>
+              <a href="https://commons.wikimedia.org/wiki/File:Tripodrock.jpg" target="_blank" rel="noreferrer">
+                Kinnelon: Tripod Rock — Toebone, public domain
+              </a>
+            </li>
+            <li>
+              <a href="https://commons.wikimedia.org/wiki/File:Ramapo_College_arch.jpg" target="_blank" rel="noreferrer">
+                Mahwah: Ramapo College arch — Daniellek0512, CC BY-SA 3.0
+              </a>
+            </li>
+            <li>
+              <a href="https://commons.wikimedia.org/wiki/File:Morristown_District_NJ.JPG" target="_blank" rel="noreferrer">
+                Morristown Green — Jared Kofsky, CC BY-SA 3.0
+              </a>
+            </li>
+            <li>
+              <a href="https://commons.wikimedia.org/wiki/File:Craftsman_Farms.jpg" target="_blank" rel="noreferrer">
+                Parsippany: Craftsman Farms — Daniel Case, CC BY-SA 3.0
+              </a>
+            </li>
+            <li>
+              <a href="https://commons.wikimedia.org/wiki/File:AMERICAN_HARD_RUBBER_INDUSTRY,_BUTLER,_MORRIS_COUNTY.jpg" target="_blank" rel="noreferrer">
+                Butler: American Hard Rubber Company — Jerrye &amp; Roy Klotz,
+                MD, CC BY-SA 3.0
+              </a>
+            </li>
+            <li>
+              <a href="https://commons.wikimedia.org/wiki/File:Reflecting_pool,_Vail_Mansion,_Morristown,_NJ.jpg" target="_blank" rel="noreferrer">
+                Vail Mansion reflecting pool — Zeete, CC BY-SA 4.0
               </a>
             </li>
           </ul>

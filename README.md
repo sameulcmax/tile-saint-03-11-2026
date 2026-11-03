@@ -44,7 +44,7 @@ The recipient, `tilesaintllc@gmail.com`, and phone number, `(646) 491-2546`, wer
 
 All project-gallery photography is clearly labeled architectural inspiration, not completed Tile Saint client work. Craftsmanship photographs do not claim to depict the owner or employees. Material browsing describes installation options, not products for sale.
 
-Site photography is served from `public/images-client/`, except for the six existing Pexels reference images in the Explore Tile Materials section. Photographer, copyright, and license details for the supplied client files were not included; see `/image-credits` and `public/PHOTO-LICENSES.md` for details. Self-hosted fonts include their Open Font License files in `public/fonts/`.
+Site photography is served from `public/images-client/`, except for the six existing Pexels images in Explore Tile Materials and the restored Wikimedia Commons photographs for the service areas. Photographer, copyright, and license details for the supplied client files were not included; see `/image-credits` and `public/PHOTO-LICENSES.md` for details. Self-hosted fonts include their Open Font License files in `public/fonts/`.
 
 Business information, service descriptions, owner name, and the three testimonials are based on the original Tile Saint website. The new visual identity, layouts, and components are original; no Somany brand assets or proprietary imagery are used.
 

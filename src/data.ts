@@ -280,7 +280,7 @@ export const areas = [
     name: "Kinnelon",
     slug: "kinnelon-nj",
     image: "kinnelon",
-    alt: "Residential interior inspiration for a Kinnelon home",
+    alt: "Tripod Rock among the trees in Kinnelon, New Jersey",
     label: "Our home. Your next chapter.",
     headline: "Thoughtful tile work, right here in Kinnelon.",
     intro:
@@ -295,7 +295,7 @@ export const areas = [
     name: "Mahwah",
     slug: "mahwah-nj",
     image: "mahwah",
-    alt: "Residential interior inspiration for a Mahwah home",
+    alt: "Historic stone and brick arch at Ramapo College in Mahwah, New Jersey",
     label: "Considered spaces. Beautifully connected.",
     headline: "A refined foundation for your Mahwah home.",
     intro:
@@ -310,7 +310,7 @@ export const areas = [
     name: "Morristown",
     slug: "morristown-nj",
     image: "morristown",
-    alt: "Residential interior inspiration for a Morristown home",
+    alt: "The tree-lined Morristown Green in downtown Morristown, New Jersey",
     label: "Enduring character. A fresh perspective.",
     headline: "Respect the character. Reimagine the details.",
     intro:
@@ -325,7 +325,7 @@ export const areas = [
     name: "Parsippany",
     slug: "parsippany-nj",
     image: "parsippany",
-    alt: "Residential interior inspiration for a Parsippany home",
+    alt: "The historic Craftsman Farms house in Parsippany, New Jersey",
     label: "Designed around the way you live.",
     headline: "Everyday spaces, thoughtfully elevated.",
     intro:
@@ -340,7 +340,7 @@ export const areas = [
     name: "Butler",
     slug: "butler-nj",
     image: "butler",
-    alt: "Residential interior inspiration for a Butler home",
+    alt: "Historic brick architecture in Butler, New Jersey",
     label: "Local care. Lasting details.",
     headline: "A fresh perspective for your Butler home.",
     intro:

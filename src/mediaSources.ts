@@ -1,4 +1,4 @@
-export const legacyMaterialSources: Record<string, string> = {
+export const legacyImageSources: Record<string, string> = {
   "material-ceramic":
     "https://images.pexels.com/photos/4249687/pexels-photo-4249687.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=850&w=1200",
   "material-porcelain":
@@ -11,6 +11,18 @@ export const legacyMaterialSources: Record<string, string> = {
     "https://images.pexels.com/photos/4252164/pexels-photo-4252164.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=850&w=1200",
   "material-mosaic":
     "https://images.pexels.com/photos/4977451/pexels-photo-4977451.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=850&w=1200",
+  kinnelon:
+    "https://upload.wikimedia.org/wikipedia/commons/4/41/Tripodrock.jpg",
+  mahwah:
+    "https://upload.wikimedia.org/wikipedia/commons/6/64/Ramapo_College_arch.jpg",
+  morristown:
+    "https://upload.wikimedia.org/wikipedia/commons/a/ae/Morristown_District_NJ.JPG",
+  parsippany:
+    "https://upload.wikimedia.org/wikipedia/commons/7/71/Craftsman_Farms.jpg",
+  butler:
+    "https://upload.wikimedia.org/wikipedia/commons/7/77/AMERICAN_HARD_RUBBER_INDUSTRY%2C_BUTLER%2C_MORRIS_COUNTY.jpg",
+  "area-hero":
+    "https://upload.wikimedia.org/wikipedia/commons/2/24/Reflecting_pool,_Vail_Mansion,_Morristown,_NJ.jpg",
 };
 
 export const fontSources: Record<string, string> = {

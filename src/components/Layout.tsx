@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
@@ -23,6 +23,88 @@ const navLinks = [
   { name: "Our Work", path: "/projects" },
   { name: "Contact", path: "/contact" },
 ];
+
+const whatsappUrl =
+  "https://wa.me/16464912546?text=Hello%20Tile%20Saint%2C%20I%27d%20like%20to%20discuss%20a%20project.";
+
+const socialLinks = [
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/tilesaint_llc/",
+    className: "footer-social-instagram",
+    icon: (
+      <>
+        <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.6" cy="6.7" r="0.8" fill="currentColor" stroke="none" />
+      </>
+    ),
+  },
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/TileSaintLLC/photos",
+    className: "footer-social-facebook",
+    icon: (
+      <path
+        d="M13.5 21v-7h2.35l.35-2.7h-2.7V9.58c0-.78.22-1.3 1.34-1.3h1.43V5.86c-.25-.03-1.1-.1-2.1-.1-2.08 0-3.5 1.27-3.5 3.6v1.96H8.3v2.7h2.36v7h2.84Z"
+        fill="currentColor"
+        stroke="none"
+      />
+    ),
+  },
+  {
+    name: "TikTok",
+    href: null,
+    className: "footer-social-tiktok",
+    icon: (
+      <path
+        d="M15.2 3h3.1c.2 2 1.3 3.8 3.7 4.5v3.2a9.2 9.2 0 0 1-3.7-1.4v6.2a6.1 6.1 0 1 1-6.1-6.1c.4 0 .8 0 1.2.1v3.3a3 3 0 1 0 1.8 2.7V3Z"
+        fill="currentColor"
+        stroke="none"
+      />
+    ),
+  },
+];
+
+function SocialIcon({ icon }: { icon: ReactNode }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      {icon}
+    </svg>
+  );
+}
+
+function WhatsAppIcon({ size = 21 }: { size?: number }) {
+  return (
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 32 32"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M16 3.2a12.3 12.3 0 0 0-10.5 18.7L4 28l6.3-1.6A12.3 12.3 0 1 0 16 3.2Z"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12.1 10.1c-.4-.8-.8-.8-1.2-.8h-1c-.4 0-.9.2-1.2.6-.4.4-1.6 1.6-1.6 3.8s1.6 4.4 1.8 4.7c.2.3 3.1 5 7.7 6.8 3.8 1.5 4.6 1.2 5.4 1.1.8-.1 2.6-1.1 3-2.1.4-1 .4-1.9.3-2.1-.1-.2-.4-.3-.8-.5l-2.9-1.4c-.4-.2-.7-.3-1 .2-.3.4-1.1 1.4-1.4 1.7-.3.3-.5.3-.9.1-.4-.2-1.8-.7-3.5-2.2-1.3-1.1-2.2-2.5-2.5-2.9-.3-.4 0-.6.2-.8.2-.2.4-.5.7-.8.2-.3.3-.4.4-.7.1-.3 0-.5 0-.7-.1-.2-1-2.4-1.4-3.2Z"
+        fill="currentColor"
+        transform="translate(2 0) scale(.86)"
+      />
+    </svg>
+  );
+}
 
 function Dropdown({ type }: { type: "services" | "areas" }) {
   const [open, setOpen] = useState(false);
@@ -128,6 +210,8 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+  const reduced = useReducedMotion();
   const [tool, setTool] = useState<"search" | "location" | null>(null);
   const { pathname } = useLocation();
   const dialogRef = useModalFocus(mobileOpen, () => setMobileOpen(false));
@@ -137,7 +221,10 @@ export function Header() {
     setTool(null);
   }, [pathname]);
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 12);
+      setShowBackToTop(window.scrollY > 400);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -153,19 +240,6 @@ export function Header() {
   return (
     <>
       <header className={`site-header ${scrolled ? "header-scrolled" : ""}`}>
-        <div className="top-strip">
-          <div className="container top-strip-inner">
-            <span>CRAFTED WITH CARE. INSTALLED WITH PRECISION.</span>
-            <div>
-              <span className="top-location">
-                <MapPin size={12} /> Kinnelon, New Jersey
-              </span>
-              <a href={business.telephone}>
-                <Phone size={12} /> {business.phone}
-              </a>
-            </div>
-          </div>
-        </div>
         <div className="container main-navigation">
           <Logo />
           <nav className="desktop-nav" aria-label="Main navigation">
@@ -224,10 +298,12 @@ export function Header() {
               <Search size={21} strokeWidth={1.6} />
             </button>
             <a
-              href={business.telephone}
-              aria-label={`Call Tile Saint at ${business.phone}`}
+              href={whatsappUrl}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Chat with Tile Saint on WhatsApp"
             >
-              <Phone size={19} strokeWidth={1.6} />
+              <WhatsAppIcon size={20} />
             </a>
             <button
               aria-label="Open navigation menu"
@@ -362,6 +438,32 @@ export function Header() {
                   <Phone size={16} />
                   {business.phone}
                 </a>
+                <nav className="mobile-menu-socials" aria-label="Social media">
+                  {socialLinks.map((social) =>
+                    social.href ? (
+                      <a
+                        key={social.name}
+                        href={social.href}
+                        className={social.className}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`Tile Saint on ${social.name}`}
+                      >
+                        <SocialIcon icon={social.icon} />
+                      </a>
+                    ) : (
+                      <span
+                        key={social.name}
+                        className={social.className}
+                        role="img"
+                        aria-label={`${social.name} profile link not provided`}
+                        title={`${social.name} profile link not provided`}
+                      >
+                        <SocialIcon icon={social.icon} />
+                      </span>
+                    ),
+                  )}
+                </nav>
                 <small>Kinnelon, New Jersey</small>
               </div>
             </motion.div>
@@ -373,6 +475,43 @@ export function Header() {
           <SiteTools key={tool} tool={tool} onClose={() => setTool(null)} />
         )}
       </AnimatePresence>
+      <div className="desktop-floating-actions">
+        <button
+          className={`floating-back-to-top ${showBackToTop ? "is-visible" : ""}`}
+          aria-label="Back to top"
+          tabIndex={showBackToTop ? 0 : -1}
+          onClick={() =>
+            window.scrollTo({
+              top: 0,
+              behavior: reduced ? "instant" : "smooth",
+            })
+          }
+        >
+          <ArrowUp size={21} />
+        </button>
+        <a
+          className="floating-whatsapp"
+          href={whatsappUrl}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Chat with Tile Saint on WhatsApp"
+        >
+          <WhatsAppIcon size={25} />
+        </a>
+      </div>
+      <button
+        className={`mobile-back-to-top ${showBackToTop ? "is-visible" : ""}`}
+        aria-label="Back to top"
+        tabIndex={showBackToTop ? 0 : -1}
+        onClick={() =>
+          window.scrollTo({
+            top: 0,
+            behavior: reduced ? "instant" : "smooth",
+          })
+        }
+      >
+        <ArrowUp size={21} />
+      </button>
     </>
   );
 }
@@ -396,6 +535,32 @@ export function Footer() {
               <MapPin size={14} />
               Kinnelon, New Jersey
             </span>
+            <nav className="footer-socials" aria-label="Social media">
+              {socialLinks.map((social) =>
+                social.href ? (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    className={social.className}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`Tile Saint on ${social.name}`}
+                  >
+                    <SocialIcon icon={social.icon} />
+                  </a>
+                ) : (
+                  <span
+                    key={social.name}
+                    className={social.className}
+                    role="img"
+                    aria-label={`${social.name} profile link not provided`}
+                    title={`${social.name} profile link not provided`}
+                  >
+                    <SocialIcon icon={social.icon} />
+                  </span>
+                ),
+              )}
+            </nav>
           </div>
           <div className="footer-column">
             <h3>Explore</h3>

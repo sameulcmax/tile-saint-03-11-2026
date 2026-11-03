@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { business } from "../data";
-import { legacyMaterialSources } from "../mediaSources";
+import { legacyImageSources } from "../mediaSources";
 
 const clientImages: Record<string, string> = {
   "modern-living": "kitchen4.webp",
@@ -209,8 +209,8 @@ export function Photo({
   return (
     <img
       src={
-        preserveOriginal && legacyMaterialSources[name]
-          ? legacyMaterialSources[name]
+        preserveOriginal && legacyImageSources[name]
+          ? legacyImageSources[name]
           : `/images-client/${clientImages[name] ?? "home1.webp"}`
       }
       alt={alt}
@@ -231,6 +231,7 @@ export function PageHero({
   alt,
   children,
   className = "",
+  preserveOriginal = false,
 }: {
   eyebrow: string;
   title: ReactNode;
@@ -239,10 +240,17 @@ export function PageHero({
   alt: string;
   children?: ReactNode;
   className?: string;
+  preserveOriginal?: boolean;
 }) {
   return (
     <section className={`page-hero ${className}`}>
-      <Photo name={image} alt={alt} eager className="page-hero-image" />
+      <Photo
+        name={image}
+        alt={alt}
+        eager
+        className="page-hero-image"
+        preserveOriginal={preserveOriginal}
+      />
       <div className="page-hero-shade" />
       <div className="container page-hero-content">
         <Eyebrow light>{eyebrow}</Eyebrow>

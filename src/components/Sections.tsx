@@ -850,7 +850,11 @@ export function AreasSection({ overview = false }: { overview?: boolean }) {
             <Reveal key={area.slug} delay={index * 0.06}>
               <Link className="area-link" to={`/service-areas/${area.slug}`}>
                 <div className="image-reveal">
-                  <Photo name={area.image} alt={area.alt} />
+                  <Photo
+                    name={area.image}
+                    alt={area.alt}
+                    preserveOriginal
+                  />
                 </div>
                 <div className="area-title">
                   <h3>

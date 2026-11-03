@@ -6,8 +6,9 @@ import {
   useScroll,
   useTransform,
 } from "framer-motion";
-import { ChevronLeft, ChevronRight, Pause, Play } from "lucide-react";
+import { ChevronLeft, ChevronRight, Pause, Play, Phone } from "lucide-react";
 import { Action, Photo, SEO } from "../components/UI";
+import { business } from "../data";
 import {
   AreasSection,
   FAQSection,
@@ -163,8 +164,14 @@ function Hero() {
               <Action to="/services" variant="outline">
                 Explore Our Services
               </Action>
-              <Action to="/contact" variant="outline" className="hero-estimate">
-                Get a Free Estimate
+              <Action
+                href={business.telephone}
+                variant="outline"
+                className="hero-estimate"
+                arrow={false}
+              >
+                <Phone size={16} aria-hidden="true" />
+                {business.phone}
               </Action>
             </div>
           </motion.div>

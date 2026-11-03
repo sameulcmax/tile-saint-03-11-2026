@@ -93,6 +93,33 @@ test("all local photography files load successfully", async ({ page }) => {
   ).toBeTruthy();
 });
 
+test("floating contact and back-to-top actions adapt to desktop and mobile", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.goto("/");
+  const whatsapp = page.getByRole("link", {
+    name: "Chat with Tile Saint on WhatsApp",
+  });
+  await expect(whatsapp).toHaveAttribute("href", /^https:\/\/wa\.me\//);
+  await expect(whatsapp).toHaveAttribute("target", "_blank");
+
+  const backToTop = page.getByRole("button", { name: "Back to top" });
+  await expect(backToTop).toBeHidden();
+  await page.evaluate(() => window.scrollTo(0, 600));
+  await expect(backToTop).toBeVisible();
+  await backToTop.click();
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeLessThan(30);
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(
+    page
+      .locator(".mobile-header-actions")
+      .getByRole("link", { name: "Chat with Tile Saint on WhatsApp" }),
+  ).toBeVisible();
+  await expect(page.locator(".desktop-floating-actions")).toBeHidden();
+});
+
 test("desktop dropdowns navigate to independent service and location pages", async ({
   page,
 }) => {
